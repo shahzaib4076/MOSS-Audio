@@ -33,7 +33,6 @@
           <a class="sidebar-link" href="#architecture">Architecture</a>
           <a class="sidebar-link" href="#evaluation">Evaluation</a>
           <a class="sidebar-link" href="#demo">Demo</a>
-          <a class="sidebar-link" href="#quickstart">Quickstart</a>
         </div>
       </div>
     </nav>
@@ -549,65 +548,6 @@
         <div id="demoTabs" class="demo-tabs" role="tablist" aria-label="Task category"></div>
         <div id="demoPanels"></div>
       </section>
-
-      <section class="paper-section" id="quickstart">
-        <h2>Quickstart</h2>
-        <p class="section-note">
-          The setup below mirrors the commands in the main README for local inference, Gradio,
-          and SGLang serving.
-        </p>
-
-        <div class="qs-block">
-          <p class="qs-heading">Environment Setup</p>
-          <div class="code-block">
-            <code>git clone https://github.com/OpenMOSS/MOSS-Audio.git
-cd MOSS-Audio
-
-conda create -n moss-audio python=3.12 -y
-conda activate moss-audio
-
-conda install -c conda-forge "ffmpeg=7" -y
-pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e ".[torch-runtime]"</code>
-          </div>
-        </div>
-
-        <div class="qs-block">
-          <p class="qs-heading">Optional: FlashAttention 2</p>
-          <div class="code-block">
-            <code>pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e ".[torch-runtime,flash-attn]"</code>
-          </div>
-        </div>
-
-        <div class="qs-block">
-          <p class="qs-heading">Basic Usage</p>
-          <div class="code-block">
-            <code>huggingface-cli download OpenMOSS-Team/MOSS-Audio --local-dir ./weights/MOSS-Audio
-huggingface-cli download OpenMOSS-Team/MOSS-Audio-Instruct --local-dir ./weights/MOSS-Audio-Instruct
-
-python infer.py</code>
-          </div>
-        </div>
-
-        <div class="qs-block">
-          <p class="qs-heading">Gradio App</p>
-          <div class="code-block">
-            <code>python app.py</code>
-          </div>
-        </div>
-
-        <div class="qs-block">
-          <p class="qs-heading">SGLang Serving</p>
-          <div class="code-block">
-            <code>git clone -b moss-audio https://github.com/OpenMOSS/sglang.git
-cd sglang
-pip install -e "python[all]"
-pip install nvidia-cudnn-cu12==9.16.0.29
-cd ..
-sglang serve --model-path ./weights/MOSS-Audio --trust-remote-code</code>
-          </div>
-        </div>
-      </section>
-
 
       <div class="model-table-wrap">
         <p class="qs-heading" style="margin-bottom: 0.75rem;">Released Models</p>

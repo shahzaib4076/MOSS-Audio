@@ -17,3 +17,6 @@ __pycache__/
 .sii/
 
 .claude/
+scripts/
+sglang/
+weights/
