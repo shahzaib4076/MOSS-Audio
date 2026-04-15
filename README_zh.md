@@ -9,6 +9,7 @@
 
 <div align="center">
   <a href="https://huggingface.co/collections/OpenMOSS-Team/moss-audio"><img src="https://img.shields.io/badge/Huggingface-Models-orange?logo=huggingface&amp"></a>
+  <a href="https://modelscope.cn/collections/openmoss/MOSS-Audio"><img src="https://img.shields.io/badge/ModelScope-Models-624AFF?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyeiIvPjwvc3ZnPg==&amp"></a>
   <img src="https://img.shields.io/badge/Blog-Coming_Soon-blue?logo=internet-explorer&amp">
   <img src="https://img.shields.io/badge/Arxiv-Coming_Soon-red?logo=Arxiv&amp">
 
