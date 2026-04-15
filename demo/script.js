@@ -548,7 +548,7 @@ const CHART_DATA = [
   { name: "Qwen3-Omni-30B-A3B-Instruct", value: 67.91, group: "osLarge" },
   { name: "MOSS-Audio-4B-Thinking", value: 68.37, group: "moss" },
   { name: "Step-Audio-R1 (33B)", value: 70.67, group: "osLarge" },
-  { name: "MOSS-Audio-8B-Thinking", value: 70.8, group: "moss" },
+  { name: "MOSS-Audio-8B-Thinking", value: 71.08, group: "moss" },
 ];
 
 const SPEECH_CAPTION_DIMENSIONS = [

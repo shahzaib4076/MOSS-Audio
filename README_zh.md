@@ -91,12 +91,12 @@ MOSS-Audio 采用由三部分组成的模块化设计：音频编码器、模态
 ## 已发布模型
 
 
-| 模型 | 音频编码器 | LLM 骨干 | 总规模 | Hugging Face |
-|---|---|---|---:|---|
-| **MOSS-Audio-4B-Instruct** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Instruct) 
-| **MOSS-Audio-4B-Thinking** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Thinking) 
-| **MOSS-Audio-8B-Instruct** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Instruct) 
-| **MOSS-Audio-8B-Thinking** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Thinking) 
+| 模型 | 音频编码器 | LLM 骨干 | 总规模 | Hugging Face | ModelScope |
+|---|---|---|---:|---|---|
+| **MOSS-Audio-4B-Instruct** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Instruct) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-4B-Instruct) |
+| **MOSS-Audio-4B-Thinking** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Thinking) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-4B-Thinking) |
+| **MOSS-Audio-8B-Instruct** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Instruct) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-8B-Instruct) |
+| **MOSS-Audio-8B-Thinking** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Thinking) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-8B-Thinking) |
 
 > 后续还将发布更多模型家族、规模与变体，敬请期待！
 
@@ -105,7 +105,7 @@ MOSS-Audio 采用由三部分组成的模块化设计：音频编码器、模态
 
 我们在一组全面的音频理解基准上评估了 MOSS-Audio。关键结果如下：
 
-- **通用音频理解**：MOSS-Audio-8B-Thinking 平均准确率达到 **70.80**，超过所有开源模型。
+- **通用音频理解**：MOSS-Audio-8B-Thinking 平均准确率达到 **71.08**，其中 MMAU 为 **77.33**、MMAU-Pro 为 **64.92**、MMAR 为 **66.53**、MMSU 为 **75.52**，超过所有开源模型。
 - **Speech Caption**：MOSS-Audio-Instruct 变体在 **13 个**细粒度语音描述维度中的 **11 个**上领先，其中 **MOSS-Audio-8B-Instruct** 取得了最佳总体平均分（**3.7252**）。
 - **ASR**：在覆盖 12 个评估维度的多样化 ASR 基准中，MOSS-Audio 取得了 **最低综合 CER（11.30）**，在健康状态、中英混说、方言、歌唱和非语音场景上表现尤为突出。
 - **时间戳 ASR**：MOSS-Audio-8B-Instruct 在 AISHELL-1 上取得 **35.77 AAS**，在 LibriSpeech 上取得 **131.61 AAS**，时间戳 ASR 精度显著优于 Qwen3-Omni（833.66）和 Gemini-3.1-Pro（708.24）。
@@ -114,6 +114,10 @@ MOSS-Audio 采用由三部分组成的模块化设计：音频编码器、模态
 
 <p align="center">
   <img src="./assets/general_audio_bar.svg" width="75%" />
+</p>
+
+<p align="center">
+  <img src="./assets/moss_audio_8b_thinking_metrics.svg" width="58%" />
 </p>
 
 <table>
@@ -155,7 +159,7 @@ MOSS-Audio 采用由三部分组成的模块化设计：音频编码器、模态
       <td><strong>MOSS-Audio-8B-Instruct</strong></td><td><strong>8B</strong></td><td>77.03</td><td>57.48</td><td>64.42</td><td>66.36</td><td>66.32</td>
     </tr>
     <tr>
-      <td><strong>MOSS-Audio-8B-Thinking</strong></td><td><strong>8B</strong></td><td>77.13</td><td><strong>64.29</strong></td><td><strong>65.73</strong></td><td><strong>76.06</strong></td><td><strong>70.80</strong></td>
+      <td><strong>MOSS-Audio-8B-Thinking</strong></td><td><strong>8B</strong></td><td><strong>77.33</strong></td><td><strong>64.92</strong></td><td><strong>66.53</strong></td><td><strong>75.52</strong></td><td><strong>71.08</strong></td>
     </tr>
     <tr><td colspan="7"><em><strong>开源（大模型）</strong></em></td></tr>
     <tr>

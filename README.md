@@ -91,12 +91,12 @@ Time is a critical dimension in audio understanding. To enhance explicit tempora
 ## Released Models
 
 
-| Model | Audio Encoder | LLM Backbone | Total Size | Hugging Face |
-|---|---|---|---:|---|
-| **MOSS-Audio-4B-Instruct** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Instruct) 
-| **MOSS-Audio-4B-Thinking** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Thinking) 
-| **MOSS-Audio-8B-Instruct** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Instruct) 
-| **MOSS-Audio-8B-Thinking** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Thinking) 
+| Model | Audio Encoder | LLM Backbone | Total Size | Hugging Face | ModelScope |
+|---|---|---|---:|---|---|
+| **MOSS-Audio-4B-Instruct** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Instruct) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-4B-Instruct) |
+| **MOSS-Audio-4B-Thinking** | MOSS-Audio-Encoder | Qwen3-4B | ~4.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-4B-Thinking) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-4B-Thinking) |
+| **MOSS-Audio-8B-Instruct** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Instruct) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-8B-Instruct) |
+| **MOSS-Audio-8B-Thinking** | MOSS-Audio-Encoder | Qwen3-8B | ~8.6B | [![Hugging Face](https://img.shields.io/badge/Huggingface-Model-orange?logo=huggingface)](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-8B-Thinking) | [![ModelScope](https://img.shields.io/badge/ModelScope-Model-624AFF)](https://modelscope.cn/models/openmoss/MOSS-Audio-8B-Thinking) |
 
 > More model families, sizes, and variants will be released in the future. Stay tuned!
 
@@ -105,7 +105,7 @@ Time is a critical dimension in audio understanding. To enhance explicit tempora
 
 We evaluate MOSS-Audio on a comprehensive set of audio understanding benchmarks. Key results:
 
-- **General Audio Understanding**: MOSS-Audio-8B-Thinking achieves an average accuracy of **70.80**, outperforming all of the open-source models.
+- **General Audio Understanding**: MOSS-Audio-8B-Thinking achieves an average accuracy of **71.08**, with **77.33** on MMAU, **64.92** on MMAU-Pro, **66.53** on MMAR, and **75.52** on MMSU, outperforming all open-source models.
 - **Speech Captioning**: MOSS-Audio-Instruct variants lead across **11 out of 13** fine-grained speech description dimensions, with **MOSS-Audio-8B-Instruct** achieving the best overall average score (**3.7252**).
 - **ASR**: On a diverse ASR benchmark suite spanning 12 evaluation dimensions, MOSS-Audio achieves the **lowest overall CER (11.30)**, with particular strength in health-condition, code-switching, dialect, singing, and non-speech scenarios.
 - **Timestamp ASR**: MOSS-Audio-8B-Instruct achieves **35.77 AAS** on AISHELL-1 and **131.61 AAS** on LibriSpeech, dramatically outperforming Qwen3-Omni (833.66) and Gemini-3.1-Pro (708.24) in timestamp asr accuracy.
@@ -155,7 +155,7 @@ We evaluate MOSS-Audio on a comprehensive set of audio understanding benchmarks.
       <td><strong>MOSS-Audio-8B-Instruct</strong></td><td><strong>8B</strong></td><td>77.03</td><td>57.48</td><td>64.42</td><td>66.36</td><td>66.32</td>
     </tr>
     <tr>
-      <td><strong>MOSS-Audio-8B-Thinking</strong></td><td><strong>8B</strong></td><td>77.13</td><td><strong>64.29</strong></td><td><strong>65.73</strong></td><td><strong>76.06</strong></td><td><strong>70.80</strong></td>
+      <td><strong>MOSS-Audio-8B-Thinking</strong></td><td><strong>8B</strong></td><td><strong>77.33</strong></td><td><strong>64.92</strong></td><td><strong>66.53</strong></td><td><strong>75.52</strong></td><td><strong>71.08</strong></td>
     </tr>
     <tr><td colspan="7"><em><strong>Open Source (large)</strong></em></td></tr>
     <tr>
