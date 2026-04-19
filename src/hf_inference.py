@@ -10,6 +10,7 @@ import torch
 from src.audio_io import load_audio
 from src.modeling_moss_audio import MossAudioModel
 from src.processing_moss_audio import MossAudioProcessor
+from transformers import BitsAndBytesConfig
 
 DEFAULT_MODEL_ID = "OpenMOSS-Team/MOSS-Audio"
 
@@ -36,11 +37,20 @@ class MossAudioHFInference:
         enable_time_marker: bool = True,
     ):
         self.device = device
+        
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+        )
+        
         self.model = MossAudioModel.from_pretrained(
             model_name_or_path,
             trust_remote_code=True,
-            torch_dtype=torch_dtype,
-            device_map=device,
+            torch_dtype=torch.float16,
+            device_map="auto",
+            quantization_config=quantization_config,
         )
         self.model.eval()
         self.processor = MossAudioProcessor.from_pretrained(

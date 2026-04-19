@@ -29,6 +29,7 @@ flash-attn = ["flash-attn"]
 
 torch-runtime = [
     "accelerate",
+    "bitsandbytes>=0.43.0",
     "torch==2.9.1+cu128",
     "torchaudio==2.9.1+cu128",
     "transformers==4.57.1",

@@ -3,6 +3,7 @@ import torch
 from src.audio_io import load_audio
 from src.modeling_moss_audio import MossAudioModel
 from src.processing_moss_audio import MossAudioProcessor
+from transformers import BitsAndBytesConfig
 
 MODEL_PATH = "/inspire/qb-ilm/project/embodied-multimodality/public/yangchen/MOSS-Audio/weights/MOSS-Audio-4B-Thinking"
 AUDIO_PATH = "test_kr.mp3"
@@ -12,11 +13,19 @@ TOP_K = 50
 
 
 def main():
+    quantization_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.float16,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+    )
+
     model = MossAudioModel.from_pretrained(
         MODEL_PATH,
         trust_remote_code=True,
-        torch_dtype="auto",
-        device_map="cuda:0",
+        torch_dtype=torch.float16,
+        device_map="auto",
+        quantization_config=quantization_config,
     )
     model.eval()
 
