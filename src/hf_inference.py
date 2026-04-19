@@ -35,16 +35,24 @@ class MossAudioHFInference:
         device: str = "cuda:0",
         torch_dtype: str = "auto",
         enable_time_marker: bool = True,
+        quantization_bits: int = 4,
     ):
         self.device = device
-        
-        quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-        )
-        
+
+        if quantization_bits == 4:
+            quantization_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.float16,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4",
+            )
+        elif quantization_bits == 8:
+            quantization_config = BitsAndBytesConfig(
+                load_in_8bit=True,
+            )
+        else:
+            raise ValueError(f"quantization_bits must be 4 or 8, got {quantization_bits}")
+
         self.model = MossAudioModel.from_pretrained(
             model_name_or_path,
             trust_remote_code=True,
