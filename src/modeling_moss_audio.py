@@ -328,6 +328,11 @@ class MossAudioModel(MossAudioPreTrainedModel, GenerationMixin):
                     f"but audio_embeds has length {int(audio_embeds.shape[1])}."
                 )
 
+            # Align all tensors to the same device as inputs_embeds (multi-GPU safe)
+            target_device = inputs_embeds.device
+            audio_embeds = audio_embeds.to(device=target_device, dtype=inputs_embeds.dtype)
+            audio_input_mask = audio_input_mask.to(target_device)
+
             mask_expanded = audio_input_mask.unsqueeze(-1).expand_as(inputs_embeds)
             inputs_embeds = inputs_embeds.clone()
             inputs_embeds.masked_scatter_(mask_expanded, audio_embeds)
