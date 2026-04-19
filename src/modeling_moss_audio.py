@@ -136,7 +136,6 @@ class MossAudioEncoder(nn.Module):
             layer_outputs = layer(
                 x,
                 attention_mask,
-                layer_head_mask=None,
                 output_attentions=False,
             )
             x = layer_outputs[0]
