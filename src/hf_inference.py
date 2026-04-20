@@ -50,8 +50,10 @@ class MossAudioHFInference:
             quantization_config = BitsAndBytesConfig(
                 load_in_8bit=True,
             )
+        elif quantization_bits == 16:
+            quantization_config = None
         else:
-            raise ValueError(f"quantization_bits must be 4 or 8, got {quantization_bits}")
+            raise ValueError(f"quantization_bits must be 4, 8, or 16. Got {quantization_bits}")
 
         self.model = MossAudioModel.from_pretrained(
             model_name_or_path,
