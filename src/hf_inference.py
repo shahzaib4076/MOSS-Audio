@@ -36,6 +36,7 @@ class MossAudioHFInference:
         torch_dtype: str = "auto",
         enable_time_marker: bool = True,
         quantization_bits: int = 4,
+        num_gpus: int = None,
     ):
         self.device = device
 
@@ -55,12 +56,33 @@ class MossAudioHFInference:
         else:
             raise ValueError(f"quantization_bits must be 4, 8, or 16. Got {quantization_bits}")
 
-        self.model = MossAudioModel.from_pretrained(
-            model_name_or_path,
+        # Build device_map and max_memory based on num_gpus
+        if num_gpus == 1:
+            # Pin everything to a single GPU — avoids PCI-e overhead
+            device_map = "cuda:0"
+        elif num_gpus is not None and num_gpus >= 2:
+            # Restrict accelerate to only the first N GPUs
+            available = torch.cuda.device_count()
+            use_count = min(num_gpus, available)
+            max_memory = {i: torch.cuda.get_device_properties(i).total_mem for i in range(use_count)}
+            device_map = "auto"
+        else:
+            # Default: let accelerate decide across all visible GPUs
+            device_map = "auto"
+            max_memory = None
+
+        load_kwargs = dict(
             trust_remote_code=True,
             torch_dtype=torch.float16,
-            device_map="auto",
+            device_map=device_map,
             quantization_config=quantization_config,
+        )
+        if num_gpus is not None and num_gpus >= 2:
+            load_kwargs["max_memory"] = max_memory
+
+        self.model = MossAudioModel.from_pretrained(
+            model_name_or_path,
+            **load_kwargs,
         )
         self.model.eval()
         self.processor = MossAudioProcessor.from_pretrained(
